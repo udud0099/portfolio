@@ -1,15 +1,60 @@
 "use client";
 
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { OrbitControls, Environment } from "@react-three/drei";
-import Navbar from "@/components/Navbar";
+import ImageFlag from "@/components/imgEff/WavyImage"; 
 import MyWork from "@/components/MyWork";
+import Navbar from "@/components/Navbar";
 import StringEffect from "@/components/StringEffect";
-import ImageFlag from "@/components/imgEff/WavyImage";
-import Arrow3D from "@/components/Arrow3D";
+
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { gsap } from "gsap";
+
+// 3D Arrow Component using Three.js as placeholder
+function Arrow3D({ onClick }) {
+  const groupRef = useRef();
+  const floatRef = useRef({ y: 0 });
+
+  // Floating animation
+  useEffect(() => {
+    gsap.to(floatRef.current, {
+      y: 0.5,
+      repeat: -1,
+      yoyo: true,
+      duration: 2.5,
+      ease: "sine.inOut",
+    });
+  }, []);
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.01;
+      groupRef.current.rotation.x += 0.005;
+      groupRef.current.position.y = floatRef.current.y;
+    }
+  });
+
+  return (
+    <group ref={groupRef} onClick={onClick} scale={2}>
+      {/* Shaft */}
+      <mesh>
+        <cylinderGeometry args={[0.08, 0.08, 1.2, 32]} />
+        <meshStandardMaterial color="#ff0080" metalness={0.9} roughness={0.2} />
+      </mesh>
+
+      {/* Arrow Head */}
+      <mesh position={[0, 0.7, 0]}>
+        <coneGeometry args={[0.2, 0.4, 32]} />
+        <meshStandardMaterial color="#ff0080" metalness={0.9} roughness={0.2} />
+      </mesh>
+
+      {/* Base for depth */}
+      <mesh position={[0, -0.6, 0]}>
+        <cylinderGeometry args={[0.15, 0.15, 0.1, 32]} />
+        <meshStandardMaterial color="#ff0080" metalness={0.9} roughness={0.2} />
+      </mesh>
+    </group>
+  );
+}
 
 export default function Home() {
   const lenisRef = useRef(null);
@@ -51,10 +96,10 @@ export default function Home() {
       <div className="w-full h-screen bg-gray-900"></div>
       <StringEffect />
       <div className="w-full h-screen bg-gray-900"></div>
-      <ImageFlag />
+      <ImageFlag /> 
       <div className="w-full h-screen bg-gray-900"></div>
 
-      {/* 3D Go To Top Button */}
+      {/* 3D Up Arrow Go To Top Button */}
       {showBtn && (
         <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">
           <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
@@ -66,11 +111,7 @@ export default function Home() {
               shadow-mapSize-width={1024}
               shadow-mapSize-height={1024}
             />
-            <Suspense fallback={null}>
-              <Arrow3D onClick={scrollTop} />
-              <Environment preset="city" />
-            </Suspense>
-            <OrbitControls enableZoom={false} enablePan={false} />
+            <Arrow3D onClick={scrollTop} />
           </Canvas>
         </div>
       )}
