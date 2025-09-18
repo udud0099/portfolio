@@ -92,7 +92,7 @@ export default function HoverWaveGallery() {
           ref={(el) => (imgRefs.current[i] = el)}
           src={`/${n}.jpg`}
           alt={`img-${n}`}
-          className="w-[300px] hover:w-[310px] rounded-xl      cursor-pointer transition-all duration-500 "
+          className="w-[300px] hover:w-[320px] rounded-xl      cursor-pointer transition-all duration-500 "
           style={{ filter: "url(#wave)" }}
         />
       ))}
