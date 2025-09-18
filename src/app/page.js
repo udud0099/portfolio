@@ -14,6 +14,7 @@ export default function Home() {
      <StringEffect />
      <div className="w-full h-screen bg-gray-900"></div>
       <ImageFlag /> 
+      <div className="w-full h-screen bg-gray-900"></div>
 
      </>
   );

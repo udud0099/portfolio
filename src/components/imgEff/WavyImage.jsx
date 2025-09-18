@@ -1,84 +1,109 @@
 "use client";
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HoverWaveGallery() {
   const imgRefs = useRef([]);
   const anim = useRef();
+  const sectionRef = useRef();
 
   useEffect(() => {
     const turb = document.querySelector("#wave feTurbulence");
 
-    // ✅ Start one shared animation
+    // ✅ Shared wave animation
     const startAnim = () => {
-      anim.current = gsap.timeline({ repeat: -1, yoyo: true })
+      anim.current = gsap
+        .timeline({ repeat: -1, yoyo: true })
         .to("#wave feDisplacementMap", {
           attr: { scale: 35 },
           duration: 8,
-          delay:2,
           ease: "sine.inOut",
         })
-        .to(turb, {
-          attr: { baseFrequency: "0.025 0.07" },
-          duration: 12,
-          delay:2,
-          ease: "sine.inOut",
-        }, 0);
+        .to(
+          turb,
+          {
+            attr: { baseFrequency: "0.025 0.07" },
+            duration: 12,
+            ease: "sine.inOut",
+          },
+          0
+        );
     };
 
     startAnim();
 
-    // ✅ Add hover handlers to all images
+    // ✅ Hover effect
     imgRefs.current.forEach((el) => {
       const handleEnter = () => {
-        anim.current.pause(); // stop anim globally
+        anim.current.pause();
         gsap.to("#wave feDisplacementMap", {
           attr: { scale: 0 },
-          duration: 3,
+          duration: 1,
           ease: "power2.out",
         });
         gsap.to(turb, {
           attr: { baseFrequency: "0.01 0.02" },
-          duration: 3,
+          duration: 1,
           ease: "power2.out",
         });
       };
-
       const handleLeave = () => {
-        anim.current.play(); // resume anim globally
+        anim.current.play();
       };
-
       el.addEventListener("mouseenter", handleEnter);
       el.addEventListener("mouseleave", handleLeave);
-
-      // cleanup
-      return () => {
-        el.removeEventListener("mouseenter", handleEnter);
-        el.removeEventListener("mouseleave", handleLeave);
-      };
     });
+
+    // ✅ Scroll-triggered sequential entrance (one by one)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "-30% top ",
+        end: "-30%  bottom ",
+        scrub: true,
+        markers: false, 
+      },
+    });
+
+    imgRefs.current.forEach((el, i) => {
+      tl.fromTo(
+        el,
+        { x: "-100vw", rotate: -20, opacity: 0 },
+        { x: "0vw", rotate: 0, opacity: 1, duration: 1 }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center items-center min-h-screen bg-black">
-      {[1, 2, 3, 4].map((n, i) => (
+    <section
+      ref={sectionRef}
+      className="flex flex-wrap gap-6 justify-center items-center h-screen bg-red-700 overflow-hidden"
+    >
+      {[4, 3, 2, 1].map((n, i) => (
         <img
           key={i}
           ref={(el) => (imgRefs.current[i] = el)}
           src={`/${n}.jpg`}
           alt={`img-${n}`}
-          className="w-[300px] rounded-xl hover:scale-103 hover:rotate-1 cursor-pointer transition-all duration-500"
+          className="w-[300px] hover:w-[310px] rounded-xl      cursor-pointer transition-all duration-500 "
           style={{ filter: "url(#wave)" }}
         />
       ))}
 
-      {/* ✅ One shared filter for all */}
+      {/* Shared wave filter */}
       <svg style={{ display: "none" }}>
         <filter id="wave">
           <feTurbulence
             type="fractalNoise"
             baseFrequency="0.02 0.05"
-            numOctaves="3"   // lighter
+            numOctaves="3"
             result="turb"
           />
           <feDisplacementMap
@@ -90,6 +115,6 @@ export default function HoverWaveGallery() {
           />
         </filter>
       </svg>
-    </div>
+    </section>
   );
 }
