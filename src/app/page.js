@@ -57,7 +57,7 @@ export default function Home() {
       {/* 3D Go To Top Button */}
       {showBtn && (
         <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">
-          <Canvas shadows camera={{ position: [0, 0, 5], fov: 50 }}>
+          <Canvas shadows camera={{ position: [0, 0, 5], fov: 40 }}>
             <ambientLight intensity={0.7} />
             <directionalLight
               position={[5, 5, 5]}
