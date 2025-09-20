@@ -45,8 +45,8 @@ export default function TextEffect({ text = "WhoAmI" }) {
     tl.to(
       [right[2]],
       {
-        y:-8,
-        scale:1.09,
+        y:-2,
+        scale:1.03,
         duration: 3,
         yoyo: true,
         repeat: -1,
@@ -62,10 +62,10 @@ export default function TextEffect({ text = "WhoAmI" }) {
   }, [chars]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
+    <div className=" ">
       <h1
         ref={containerRef}
-        className="text-6xl font-bold text-white leading-none select-none"
+        className="text-2xl font-bold text-white leading-none select-none"
       >
         {chars.map((ch, idx) => {
           const isSpace = ch === " ";

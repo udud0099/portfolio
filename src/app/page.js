@@ -8,10 +8,9 @@ import MyWork from "@/components/MyWork";
 import StringEffect from "@/components/StringEffect";
 import ImageFlag from "@/components/imgEff/WavyImage";
 import Arrow3D from "@/components/Arrow3D";
-import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import TextEffect from "@/components/TextEffect";
-import CustomCursor from "@/components/CustomCursor";
+import { useEffect, useRef, useState } from "react"; 
+import CustomCursor from "@/components/CustomCursor"; 
+import WhoAmI3D from "@/components/WhoAmI3D";
 
 export default function Home() {
   const lenisRef = useRef(null);
@@ -47,10 +46,13 @@ export default function Home() {
 
   return (
     <>
+    <div className="bg-[#020024]">
+
      <CustomCursor /> {/* custom cursor active globally */}
       <Navbar />
-      <TextEffect />
-      <div className="w-full h-screen bg-gray-900"></div>
+      {/* <WhoAmI3D text="WhoAmI"/> */}
+      
+      <div className="w-full h-screen bg-[#0d1828]"></div>
       <MyWork />
       <div className="w-full h-screen bg-gray-900"></div>
       <StringEffect />
@@ -78,6 +80,7 @@ export default function Home() {
           </Canvas>
         </div>
       )}
+      </div>
     </>
   );
 }
