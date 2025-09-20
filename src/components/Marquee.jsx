@@ -36,7 +36,7 @@ const Marquee = () => {
     <div id="page2" className="h-[100px] flex items-center justify-center bg-yellow-900 text-white">
       <div id="move" className="flex gap-8   overflow-hidden">
         {Array(11)
-          .fill("See More")
+          .fill("View More")
           .map((text, i) => (
             <div key={i} className="marque flex items-center gap-8 text-4xl font-bold">
                 <Link href={`https://dribbble.com/Ujjjwal_D`} target="_blank">

@@ -10,6 +10,7 @@ import ImageFlag from "@/components/imgEff/WavyImage";
 import Arrow3D from "@/components/Arrow3D";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import TextEffect from "@/components/TextEffect";
 
 export default function Home() {
   const lenisRef = useRef(null);
@@ -46,6 +47,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <TextEffect />
       <div className="w-full h-screen bg-gray-900"></div>
       <MyWork />
       <div className="w-full h-screen bg-gray-900"></div>
