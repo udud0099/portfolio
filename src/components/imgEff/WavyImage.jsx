@@ -84,7 +84,7 @@ export default function HoverWaveGallery() {
   return (
     <section
       ref={sectionRef} id="contact"
-      className="flex flex-wrap gap-6 justify-center items-center h-screen bg-red-700 overflow-hidden"
+      className="flex flex-wrap gap-6 justify-center items-center h-screen bg-[#020024] overflow-hidden"
     >
       {[4, 3, 2, 1].map((n, i) => (
         <img

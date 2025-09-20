@@ -28,7 +28,7 @@ const MyWork = () => {
 
   return (
     <>
-      <div id="mywork" className="w-full h-screen bg-black overflow-hidden">
+      <div id="mywork" className="w-full h-screen  bg-[#020024] overflow-hidden"  >
         <Canvas camera={{ fov: 20 }}>
           <OrbitControls enableZoom={false} enablePan={false} />
           <ambientLight />

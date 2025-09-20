@@ -33,7 +33,7 @@ const Marquee = () => {
       }, []);
 
   return (
-    <div id="page2" className="h-[100px] flex items-center justify-center bg-yellow-900 text-white">
+    <div id="page2" className="h-[100px] flex items-center justify-center  bg-[#020024] text-white">
       <div id="move" className="flex gap-8   overflow-hidden">
         {Array(11)
           .fill("View More")

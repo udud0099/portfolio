@@ -43,7 +43,7 @@ export default function WhoAmI3D({ text }) {
   };
 
   return (
-    <div className="w-full   cursor-pointer text-6xl">
+    <div className="w-full   cursor-pointer  ">
       <Canvas camera={{ position: [0, 0, 5], fov: 30 }}>
         <Text
           ref={textRef}

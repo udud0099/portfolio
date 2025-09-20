@@ -40,7 +40,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav className="fixed top-0 left-0 w-full flex items-center justify-between px-6 py-4 bg-[#020024] text-white z-50 shadow-md shadow-[#050511]">
+    <nav className="  w-full flex items-center justify-between px-6 pt-8 pb-2 bg-[#020024] text-white z-50 shadow-md shadow-[#050511]">
       <div className="text-xl font-bold"><TextEffect /></div>
 
       <button
@@ -53,15 +53,19 @@ export default function Navbar() {
       {/* Fullscreen Menu */}
       <div
         ref={menuRef}
-        className="absolute top-15 left-0 w-full h-screen  bg-[#020024] flex flex-col items-center justify-center gap-6 text-2xl text-black z-40"
-        style={{ opacity: 0, transform: "translateY(-100%)" }} // hidden by default
+        className="absolute top-15 left-0 w-full bg-[#020024] flex flex-col items-center justify-center gap-6 text-2xl text-black z-40"
+  style={{                // same as top-[30px]
+    height: "calc(100vh - 30px)", // 100vh minus navbar height
+    opacity: 0,
+    transform: "translateY(-100%)",
+  }}
       >
-        <a href="#home" onClick={(e) => handleNavClick(e, "#home")}>
+        <a className="w-full" href="#home" onClick={(e) => handleNavClick(e, "#home")}>
           <WhoAmI3D text="home" />
         </a>
-        <a href="#about" onClick={(e) => handleNavClick(e, "#about")}>About</a>
-        <a href="#projects" onClick={(e) => handleNavClick(e, "#projects")}>Projects</a>
-        <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>Contact</a>
+        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#about")}><WhoAmI3D text="About" /></a>
+        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#projects")}><WhoAmI3D text="Projects" /></a>
+        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#contact")}><WhoAmI3D text="Contact" /></a>
       </div>
     </nav>
   );

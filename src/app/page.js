@@ -49,16 +49,10 @@ export default function Home() {
     <div className="bg-[#020024]">
 
      <CustomCursor /> {/* custom cursor active globally */}
-      <Navbar />
-      {/* <WhoAmI3D text="WhoAmI"/> */}
-      
-      <div className="w-full h-screen bg-[#0d1828]"></div>
-      <MyWork />
-      <div className="w-full h-screen bg-gray-900"></div>
-      <StringEffect />
-      <div className="w-full h-screen bg-gray-900"></div>
+      <Navbar /> 
+      <StringEffect />  
+      <MyWork /> 
       <ImageFlag />
-      <div className="w-full h-screen bg-gray-900"></div>
 
       {/* 3D Go To Top Button */}
       {showBtn && (
