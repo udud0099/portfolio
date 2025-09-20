@@ -43,14 +43,15 @@ export default function TextEffect({ text = "WhoAmI" }) {
 
     // infinite grow/shrink loop after entrance
     tl.to(
-      [...left, ...right],
+      [right[2]],
       {
-        scale: .95,
-        duration: 5,
+        y:-8,
+        scale:1.09,
+        duration: 3,
         yoyo: true,
         repeat: -1,
         ease: "bounce.out",
-        transformOrigin: "center center",
+        transformOrigin: "top center",
       },
       "+=0.2" // slight delay after entrance
     );

@@ -11,6 +11,7 @@ import Arrow3D from "@/components/Arrow3D";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import TextEffect from "@/components/TextEffect";
+import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   const lenisRef = useRef(null);
@@ -46,6 +47,7 @@ export default function Home() {
 
   return (
     <>
+     <CustomCursor /> {/* custom cursor active globally */}
       <Navbar />
       <TextEffect />
       <div className="w-full h-screen bg-gray-900"></div>
