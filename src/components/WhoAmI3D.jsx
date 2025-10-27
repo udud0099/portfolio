@@ -43,7 +43,7 @@ export default function WhoAmI3D({ text }) {
   };
 
   return (
-    <div className="w-full   cursor-pointer  ">
+    <div className="w-full   cursor-pointer   ">
       <Canvas camera={{ position: [0, 0, 5], fov: 30 }}>
         <Text
           ref={textRef}
@@ -62,7 +62,7 @@ export default function WhoAmI3D({ text }) {
           onPointerOver={handleHover}
           onPointerOut={handleHoverOut}
         >
-           {text} 
+          {text}
         </Text>
       </Canvas>
     </div>

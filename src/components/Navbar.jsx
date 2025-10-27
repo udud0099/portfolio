@@ -41,12 +41,11 @@ export default function Navbar() {
 
   return (
     <nav className="  w-full flex items-center justify-between px-6 pt-8 pb-2 bg-[#020024] text-white z-50 shadow-md shadow-[#050511]">
-      <div className="text-xl font-bold"><TextEffect /></div>
+      <div className="text-xl font-bold">
+        <TextEffect />
+      </div>
 
-      <button
-        className="text-2xl"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+      <button className="text-2xl" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <FiX /> : <FiMenu />}
       </button>
 
@@ -54,18 +53,41 @@ export default function Navbar() {
       <div
         ref={menuRef}
         className="absolute top-15 left-0 w-full bg-[#020024] flex flex-col items-center justify-center gap-6 text-2xl text-black z-40"
-  style={{                // same as top-[30px]
-    height: "calc(100vh - 30px)", // 100vh minus navbar height
-    opacity: 0,
-    transform: "translateY(-100%)",
-  }}
+        style={{
+          // same as top-[30px]
+          height: "calc(100vh - 30px)", // 100vh minus navbar height
+          opacity: 0,
+          transform: "translateY(-100%)",
+        }}
       >
-        <a className="w-full" href="#home" onClick={(e) => handleNavClick(e, "#home")}>
-          <WhoAmI3D text="home" />
+        <a
+          className="w-full"
+          href="#AboutMe"
+          onClick={(e) => handleNavClick(e, "#AboutMe")}
+        >
+          <WhoAmI3D text="About Me" />
         </a>
-        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#about")}><WhoAmI3D text="About" /></a>
-        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#projects")}><WhoAmI3D text="Projects" /></a>
-        <a className="w-full" href="#mywork" onClick={(e) => handleNavClick(e, "#contact")}><WhoAmI3D text="Contact" /></a>
+        <a
+          className="w-full"
+          href="#MySkills"
+          onClick={(e) => handleNavClick(e, "#MySkills")}
+        >
+          <WhoAmI3D text="My Skills" />
+        </a>
+        <a
+          className="w-full"
+          href="#Projects"
+          onClick={(e) => handleNavClick(e, "#Projects")}
+        >
+          <WhoAmI3D text="Projects" />
+        </a>
+        <a
+          className="w-full"
+          href="#Contact"
+          onClick={(e) => handleNavClick(e, "#Contact")}
+        >
+          <WhoAmI3D text="Contact" />
+        </a>
       </div>
     </nav>
   );
