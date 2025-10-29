@@ -58,8 +58,8 @@ export default function Home() {
         {/* <ImageFlag /> */}
         <AboutMe />
         <MySkills />
-        <Projects />
-        <Contact />
+        {/* <Projects /> */}
+        {/* <Contact /> */}
         {/* 3D Go To Top Button */}
         {showBtn && (
           <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">

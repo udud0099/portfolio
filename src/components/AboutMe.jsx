@@ -18,7 +18,7 @@ const AboutMe = () => {
       </div>
       <div className="relative z-2">
         <div className="pl-[40%] pt-[10%] pr-[10%] pb-[3%] text-[#020024]">
-          <h1 className="text-8xl mb-12 font-semibold ">HI, I'm <span className="font-bold">Ujjawal</span></h1>
+          <h1 className="text-8xl mb-12 font-semibold ">Hi, I'm <span className="font-bold">Ujjawal</span></h1>
           <h2 className="text-4xl font-semibold mb-8   ">A Frontend Developer based in Kathmandu, Nepal.</h2>
           <p className="font-base text-xl text-justify">
             Over the past 2 years, I’ve worked on building responsive, fast, and
