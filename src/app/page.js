@@ -55,7 +55,7 @@ export default function Home() {
         <Navbar />
         <StringEffect />
         <MyWork />
-        <ImageFlag />
+        {/* <ImageFlag /> */}
         <AboutMe />
         <MySkills />
         <Projects />
