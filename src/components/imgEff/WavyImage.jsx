@@ -82,7 +82,7 @@ export default function HoverWaveGallery() {
   }, []);
 
   return (
-    <section
+    <section 
       ref={sectionRef} id="contact"
       className="flex flex-wrap gap-6 justify-center items-center h-screen bg-[#020024] overflow-hidden"
     >

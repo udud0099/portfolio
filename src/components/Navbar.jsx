@@ -76,8 +76,8 @@ export default function Navbar() {
         </a>
         <a
           className="w-full"
-          href="#Projects"
-          onClick={(e) => handleNavClick(e, "#Projects")}
+          href="#contact"
+          onClick={(e) => handleNavClick(e, "#contact")}
         >
           <WhoAmI3D text="Projects" />
         </a>

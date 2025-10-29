@@ -39,7 +39,7 @@ const Marquee = () => {
           .fill("View More")
           .map((text, i) => (
             <div key={i} className="marque flex items-center gap-8 text-4xl font-bold">
-                <Link href={`https://dribbble.com/Ujjjwal_D`} target="_blank">
+                <Link href={`https://www.instagram.com/ujjawal_0025/`} target="_blank">
               <h1 className="whitespace-nowrap">{text}</h1>
                 </Link>
               <img src="/arrow-br.svg" alt="arrow" className="w-8 h-8 mr-8" />
