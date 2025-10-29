@@ -55,11 +55,11 @@ export default function Home() {
         <Navbar />
         <StringEffect />
         <MyWork />
-        {/* <ImageFlag /> */}
         <AboutMe />
         <MySkills />
         {/* <Projects /> */}
         {/* <Contact /> */}
+        <ImageFlag />
         {/* 3D Go To Top Button */}
         {showBtn && (
           <div className="fixed bottom-10 right-10 w-28 h-28 z-50 cursor-pointer">
