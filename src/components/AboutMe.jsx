@@ -21,11 +21,17 @@ const AboutMe = () => {
           <h1 className="text-8xl mb-12 font-semibold ">Hi, I'm <span className="font-bold">Ujjawal</span></h1>
           <h2 className="text-4xl font-semibold mb-8   ">A Frontend Developer based in Kathmandu, Nepal.</h2>
           <p className="font-base text-xl text-justify">
-            Over the past 2 years, I’ve worked on building responsive, fast, and
+            Over the past 3 years, I’ve worked on building responsive, fast, and
             modern web applications using React.js, Next.js, and Tailwind CSS.
             These days, I focus on writing clean, maintainable code and creating
             smooth user experiences that bring ideas to life on the web.
           </p>
+          <br /> 
+          <p>Beginner Level - Node.js, Express, MongoDB, Prisma,
+ Understanding Auth, CRUD
+ <br />
+ I also bring 1 year UI/UX design and 3+ years of experience in Graphic Design.
+</p>
         </div>
       </div>
     </div>
